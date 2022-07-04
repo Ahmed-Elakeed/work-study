@@ -22,14 +22,10 @@ public class WorkStudyApplication implements CommandLineRunner {
 
 
     private final UserService userService;
-    private final PostService postService;
-    private final CommentService commentService;
 
     @Autowired
-    public WorkStudyApplication(UserService userService, PostService postService, CommentService commentService) {
+    public WorkStudyApplication(UserService userService) {
         this.userService = userService;
-        this.postService = postService;
-        this.commentService = commentService;
     }
 
     @Override
