@@ -23,7 +23,7 @@ public class CommentService {
         return this.commentDAO.saveComment(comment);
     }
 
-    public List getCommentsWithUserEmail(String userEmail) {
-        return this.commentDAO.fetchCommentsWithUserEmail(userEmail);
+    public List getAllCommentsWithUserEmail(String userEmail) {
+        return this.commentDAO.fetchAllCommentsWithUserEmail(userEmail);
     }
 }

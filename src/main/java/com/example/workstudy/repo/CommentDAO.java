@@ -17,7 +17,7 @@ public class CommentDAO {
         return this.entityManager.merge(comment);
     }
 
-    public List fetchCommentsWithUserEmail(String userEmail) {
+    public List fetchAllCommentsWithUserEmail(String userEmail) {
         return this.entityManager.createQuery("select c from Comment c" +
                         " where c.user.email=:userEmail" +
                         " and c.deleted=false" +
