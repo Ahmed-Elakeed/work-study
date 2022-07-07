@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class PostService {
 
@@ -19,5 +21,10 @@ public class PostService {
     @Transactional
     public Post savePost(Post post){
         return this.postDAO.savePost(post);
+    }
+
+
+    public List getAllPostsWithNoComments(){
+        return this.postDAO.fetchAllPostsWithNoComments();
     }
 }

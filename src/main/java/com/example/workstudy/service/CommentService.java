@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class CommentService {
 
@@ -17,7 +19,11 @@ public class CommentService {
     }
 
     @Transactional
-    public Comment saveComment(Comment comment){
+    public Comment saveComment(Comment comment) {
         return this.commentDAO.saveComment(comment);
+    }
+
+    public List getCommentsWithUserEmail(String userEmail) {
+        return this.commentDAO.fetchCommentsWithUserEmail(userEmail);
     }
 }

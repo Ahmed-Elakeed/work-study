@@ -1,6 +1,5 @@
 package com.example.workstudy.repo;
 
-import com.example.workstudy.entity.User;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -14,13 +13,13 @@ public class UserDAO {
     private EntityManager entityManager;
 
 
-    public List fetchAllUsers(){
+    public List fetchAllUsers() {
         return this.entityManager.createQuery("select distinct u from User u" +
-                " left join fetch u.posts p" +
-                " left join fetch p.comments c" +
-                " where u.deleted=false" +
-                " and p.deleted=false and" +
-                " c.deleted=false")
+                        " left join fetch u.posts p" +
+                        " left join fetch p.comments c" +
+                        " where u.deleted=false" +
+                        " and p.deleted=false" +
+                        " and c.deleted=false")
                 .getResultList();
     }
 }
