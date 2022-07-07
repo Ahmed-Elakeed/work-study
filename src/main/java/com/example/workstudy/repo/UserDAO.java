@@ -15,6 +15,12 @@ public class UserDAO {
 
 
     public List fetchAllUsers(){
-        return this.entityManager.createQuery("select distinct u from User u left join fetch u.posts p left join fetch p.comments").getResultList();
+        return this.entityManager.createQuery("select distinct u from User u" +
+                " left join fetch u.posts p" +
+                " left join fetch p.comments c" +
+                " where u.deleted=false" +
+                " and p.deleted=false and" +
+                " c.deleted=false")
+                .getResultList();
     }
 }

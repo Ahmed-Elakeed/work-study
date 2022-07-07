@@ -27,6 +27,8 @@ public class User {
     private String email;
     @Column(name = "address")
     private String address;
+    @Column(name = "deleted")
+    private Boolean deleted;
 
     @OneToMany(mappedBy = "user")
     private Set<Post> posts;

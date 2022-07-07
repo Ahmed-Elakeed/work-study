@@ -32,6 +32,9 @@ public class Comment {
     @JoinColumn(name = "post_id",referencedColumnName = "id")
     private Post post;
 
+    @Column(name = "deleted")
+    private Boolean deleted;
+
     @Override
     public String toString() {
         return "Comment{" +

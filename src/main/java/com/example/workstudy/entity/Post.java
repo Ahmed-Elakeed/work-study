@@ -30,6 +30,9 @@ public class Post {
     @JoinColumn(name = "user_id",referencedColumnName = "id")
     private User user;
 
+    @Column(name = "deleted")
+    private Boolean deleted;
+
     @OneToMany(mappedBy = "post")
     private Set<Comment> comments;
 
