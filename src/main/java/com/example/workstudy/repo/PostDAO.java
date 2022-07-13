@@ -27,11 +27,22 @@ public class PostDAO {
     }
 
     public List fetchAllPostsWithNoComments() {
-        return this.entityManager.createQuery("select p from Post p" +
-                        " left join fetch p.comments c" +
-                        " where p.comments.size=0" +
-                        " and p.deleted=false" +
-                        " and p.user.deleted=false")
+        return this.entityManager.createQuery("select distinct p from Post p " +
+                        "join fetch p.user u " +
+                        "left join fetch p.comments c " +
+                        "where size(p.comments)=0 " +
+                        "and p.deleted=false " +
+                        "and u.deleted=false")
+                .getResultList();
+    }
+
+    public List fetchAllPostsWithComments() {
+        return this.entityManager.createQuery("select distinct p from Post p " +
+                        "join fetch p.user u " +
+                        "inner join fetch p.comments c " +
+                        "where p.deleted=false " +
+                        "and c.deleted=false " +
+                        "and u.deleted=false")
                 .getResultList();
     }
 }

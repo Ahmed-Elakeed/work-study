@@ -26,4 +26,8 @@ public class CommentService {
     public List getAllCommentsWithUserEmail(String userEmail) {
         return this.commentDAO.fetchAllCommentsWithUserEmail(userEmail);
     }
+
+    public List getAllCommentsContainsWord(String word) {
+        return this.commentDAO.fetchAllCommentsContainsWord(word);
+    }
 }

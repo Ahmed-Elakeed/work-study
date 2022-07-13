@@ -32,10 +32,14 @@ public class WorkStudyApplication implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args){
-        LOGGER.info("All users -> {}",this.userService.getAllUsers());
-        LOGGER.info("All posts with no comments -> {}",this.postService.getAllPostsWithNoComments());
-        String userEmail="ahmedelakeed@gmailcom";
-        LOGGER.info("All comments with user email {} -> {}",userEmail,this.commentService.getAllCommentsWithUserEmail(userEmail));
+    public void run(String... args) {
+        LOGGER.info("All users -> {}", this.userService.getAllUsers());
+        LOGGER.info("All posts with no comments -> {}", this.postService.getAllPostsWithNoComments());
+        String userEmail = "ahmedelakeed@gmailcom";
+        LOGGER.info("All comments with user email {} -> {}", userEmail, this.commentService.getAllCommentsWithUserEmail(userEmail));
+        LOGGER.info("All posts with comments -> {}", this.postService.getAllPostsWithComments());
+        LOGGER.info("All users wrappers-> {}", this.userService.getAllUserWithUserWrapper());
+        String word="bro";
+        LOGGER.info("All comments containing '{}' -> {}",word,this.commentService.getAllCommentsContainsWord(word));
     }
 }

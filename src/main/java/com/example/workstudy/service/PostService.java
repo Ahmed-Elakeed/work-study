@@ -19,12 +19,16 @@ public class PostService {
     }
 
     @Transactional
-    public Post savePost(Post post){
+    public Post savePost(Post post) {
         return this.postDAO.savePost(post);
     }
 
 
-    public List getAllPostsWithNoComments(){
+    public List getAllPostsWithNoComments() {
         return this.postDAO.fetchAllPostsWithNoComments();
+    }
+
+    public List getAllPostsWithComments() {
+        return this.postDAO.fetchAllPostsWithComments();
     }
 }

@@ -27,12 +27,18 @@ public class CommentDAO {
     }
 
     public List fetchAllCommentsWithUserEmail(String userEmail) {
-        return this.entityManager.createQuery("select c from Comment c" +
-                        " where c.user.email=:userEmail" +
+        return this.entityManager.createQuery("select distinct c from Comment c " +
+                        "join fetch c.user u " +
+                        "join fetch c.post p " +
+                        "where u.email=:userEmail" +
                         " and c.deleted=false" +
-                        " and c.user.deleted=false" +
-                        " and c.post.deleted=false")
+                        " and u.deleted=false" +
+                        " and p.deleted=false")
                 .setParameter("userEmail", userEmail)
                 .getResultList();
+    }
+
+    public List fetchAllCommentsContainsWord(String word) {
+        return this.commentData.allCommentsContainsWord(word);
     }
 }

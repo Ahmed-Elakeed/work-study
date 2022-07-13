@@ -19,5 +19,7 @@ public class UserService {
     public List getAllUsers(){
         return this.userDAO.fetchAllUsers();
     }
+
+    public List getAllUserWithUserWrapper(){return this.userDAO.fetchAllUsersWithUserWrapper();}
 }
 

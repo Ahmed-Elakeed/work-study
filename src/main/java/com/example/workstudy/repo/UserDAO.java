@@ -31,4 +31,9 @@ public class UserDAO {
                         " and c.deleted=false")
                 .getResultList();
     }
+
+    public List fetchAllUsersWithUserWrapper() {
+        return this.entityManager.createQuery("select distinct new com.example.workstudy.wrapper.UserWrapper(u.name,u.email,u.phone) from User u")
+                .getResultList();
+    }
 }
