@@ -1,5 +1,7 @@
 package com.example.workstudy.repo;
 
+import com.example.workstudy.data.UserData;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -11,6 +13,13 @@ public class UserDAO {
 
     @PersistenceContext
     private EntityManager entityManager;
+
+    private UserData userData;
+
+    @Autowired
+    public UserDAO(UserData userData) {
+        this.userData = userData;
+    }
 
 
     public List fetchAllUsers() {
